@@ -1,0 +1,106 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+#include <stdlib.h>
+
+
+
+int main (int argc, string argv[])
+{
+    if (argc!=2)
+    { 
+        printf ("Error\n");
+        return 1;
+    }
+    
+    string key = argv[1];
+    int a,l; 
+    int k=strlen(key);
+    
+    for ( a=0; a<k; a++)
+    {
+        if (!isalpha (key[a]))
+        {
+            printf ("Error\n");
+            return 1;
+        }
+    }
+    char cyper;
+    int up, lower,key1,key2;
+    string text=GetString();
+    
+    
+    
+    for  (l=0; l<strlen(text); l++ )
+    {
+        if (isalpha (text[l]))
+        { 
+            if (a%k==0)
+            {
+                a=0;
+            }
+            if ( isupper (text[l])) //for uppercase in text
+            { 
+                if ( isupper (key[a])) 
+                {
+                    up = text[l]-65;
+                    key1=key[a]-65;
+                    cyper=((up + key1)%26);
+                    cyper=cyper+65;
+                
+                    printf ("%c", cyper);
+                    a++;
+                }
+                else if ( islower (key[a])) 
+                {
+                    up = text[l]-65;
+                    key1=key[a]-97;
+                    cyper=((up + key1)%26);
+                        
+                    cyper=cyper+65;
+                    printf ("%c",cyper);
+                    a++;
+                }  
+               
+            } 
+            else if ( islower (text[l])) //for lowercase in text
+            {
+               
+                if ( isupper (key[a])) 
+                {
+                    lower=text[l]-97;
+                    key2=key[a]-65;
+                    cyper=((lower + key2)%26);
+                        
+                    cyper=cyper+97;
+                
+                    printf ("%c",cyper);
+                    a++;
+                }
+                else if ( islower (key[a])) 
+                {
+                    lower=text[l]-97;
+                    key2=key[a]-97;
+                    cyper=((lower + key2)%26);
+                        
+                    cyper=cyper+97;
+                    printf ("%c", cyper);
+                    a++;
+                }  
+            }
+        
+        }
+        else
+            printf ("%c", text[l]);
+    }
+    printf ("\n");
+} 
+                    
+          
+       
+     
+    
+   
+
+        
