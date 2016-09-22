@@ -24,38 +24,36 @@ int main (int argc, string argv[])
     { 
         printf ("plaintext: ");
         string text = GetString();
-        int up, lower;
+        
         char cyper;
         printf ("ciphertext: ");
         for (int i=0; i<strlen(text);i++)
         {
-            if (text[i]<=90 || text[i]>=97 || text[i]<=122)
+            if ( isalpha (text[i]))
             {
-                if ( isalpha (text[i]))
-                {
-                    if ( isupper (text[i])) 
-                    { 
-                        up = text[i]-65;
-                        cyper=(up + key)%26;
-                        cyper=cyper+65;
-                        printf ("%c",(char)cyper);
-                    
-                    }
-                    else if ( islower (text[i])) 
-                    {
-                        lower=text[i]-97;
-                        cyper=(lower + key)%26;
-                        cyper=cyper+97;
-                        printf ("%c",(char)cyper);
-                        
-                    }
+                if ( isupper (text[i])) 
+                { 
+                    int up = text[i]-65;
+                    cyper=(up + key)%26;
+                    cyper=cyper+65;
+                    printf ("%c",(char)cyper);
                 }
                 else 
-                    printf ("%c", text[i]);
+                {
+                    int lower=text[i]-97;
+                    cyper=(lower + key)%26;
+                    cyper=cyper+97;
+                    printf ("%c",(char)cyper);
+                }
             }
+            else 
+                printf ("%c", text[i]);
+            
         }
     }
     printf("\n");
         
       
 }
+
+
