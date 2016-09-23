@@ -54,7 +54,7 @@ int main (int argc, string argv[])
                     printf ("%c", cyper);
                     a++;
                 }
-                else if ( islower (key[a])) 
+                else 
                 {
                     up = text[l]-65;
                     key1=key[a]-97;
@@ -66,7 +66,7 @@ int main (int argc, string argv[])
                 }  
                
             } 
-            else if ( islower (text[l])) //for lowercase in text
+            else                                 //for lowercase in text
             {
                
                 if ( isupper (key[a])) 
@@ -80,7 +80,7 @@ int main (int argc, string argv[])
                     printf ("%c",cyper);
                     a++;
                 }
-                else if ( islower (key[a])) 
+                else 
                 {
                     lower=text[l]-97;
                     key2=key[a]-97;
@@ -99,6 +99,7 @@ int main (int argc, string argv[])
     printf ("\n");
 } 
                     
+          
           
        
      
